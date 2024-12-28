@@ -10,7 +10,7 @@ This project demonstrates the development of a simple robot simulation in **Gaze
 2. [Features](#features)
 3. [Installation and Setup](#installation-and-setup)
 4. [How to Run](#how-to-run)
-5. [Lampiran](#lampiran)
+5. [Deliverables](#deliverables)
 
 ---
 
@@ -88,11 +88,11 @@ The robot should automatically detect and follow the white object in the simulat
 
 ---
 
-## **Lampiran**
+## **Deliverables**
 
-1. **Video Simulasi**: https://drive.google.com/file/d/1DgXku_ZmVICsMR7rcJ6ecJ6KJvxl4efD/view?usp=drive_link
-   - Video mendemonstrasikan robot pengikut objek putih.
-2. **Dokumentasi**: https://drive.google.com/file/d/1aQ1xXnB4ctdu4qDjvUxBbhaCQG5bjRhq/view?usp=drive_link
-   - Berisi penjelasan dan alur kerja dalam bentuk PDF.
+1. **Simulation Video**: https://drive.google.com/drive/folders/1HafsxIWreWxEfUF7UJ6uI1xf2absKVZc?usp=sharing
+   - A video demonstrating the robot following a white object in Gazebo.
+2. **Documentation**: https://drive.google.com/drive/folders/194OHLaNlf3-DzptS3D1fzv_5t16KUpbB?usp=sharing
+   - This PDF file explaining the system's components and workflow.
 3. **GitHub Repository**: https://github.com/Camn0/URO_ROS2_Gazebo/
-   - Semua source code, fail launch, dan konfigurasi.
+   - Include all source code, launch files, and configurations.
