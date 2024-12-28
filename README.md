@@ -90,9 +90,9 @@ The robot should automatically detect and follow the white object in the simulat
 
 ## **Lampiran**
 
-1. **Video Simulasi**:
+1. **Video Simulasi**: https://drive.google.com/file/d/1aQ1xXnB4ctdu4qDjvUxBbhaCQG5bjRhq/view?usp=drive_link
    - Video mendemonstrasikan robot pengikut objek putih.
-2. **Dokumentasi**:
+2. **Dokumentasi**: https://drive.google.com/file/d/1aQ1xXnB4ctdu4qDjvUxBbhaCQG5bjRhq/view?usp=drive_link
    - Berisi penjelasan dan alur kerja dalam bentuk PDF.
-3. **GitHub Repository**:
+3. **GitHub Repository**: https://github.com/Camn0/URO_ROS2_Gazebo/
    - Semua source code, fail launch, dan konfigurasi.
