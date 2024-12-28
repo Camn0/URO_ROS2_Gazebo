@@ -8,22 +8,9 @@ This project demonstrates the development of a simple robot simulation in **Gaze
 
 1. [Overview](#overview)
 2. [Features](#features)
-3. [Project Components](#project-components)
-   - [Movement Parameters](#movement-parameters)
-   - [Object Detection](#object-detection)
-   - [Camera Calibration](#camera-calibration)
-   - [Localization](#localization)
-   - [Pathfinding Algorithm (A*)](#pathfinding-algorithm-a)
-   - [Movement Signal Control](#movement-signal-control)
-   - [Pose Estimation](#pose-estimation)
-   - [Proportional Integral Derivative (PID)](#proportional-integral-derivative-pid)
-   - [Active Disturbance Rejection Control (ADRC)](#active-disturbance-rejection-control-adrc)
-4. [System Workflow](#system-workflow)
-5. [Installation and Setup](#installation-and-setup)
-6. [How to Run](#how-to-run)
-7. [Deliverables](#deliverables)
-8. [Future Work](#future-work)
-9. [Acknowledgments](#acknowledgments)
+3. [Installation and Setup](#installation-and-setup)
+4. [How to Run](#how-to-run)
+5. [Lampiran](#lampiran)
 
 ---
 
