@@ -1,6 +1,6 @@
 # **Robot Following White Object (ROS2 Project)**
 
-This project demonstrates the development of a simple robot simulation in **Gazebo** using **ROS2**. The robot follows a white object in its environment automatically using a camera sensor and a **Proportional-Integral-Derivative (PID)** controller. The project also includes placeholder implementations for **Pathfinding (A*)**, **Localization**, and other advanced control concepts for future extension.
+This project demonstrates the development of a simple robot simulation in **Gazebo** using **ROS2**. The robot follows a white object in its environment automatically using a camera sensor and a **Proportional-Integral-Derivative (PID)** controller. The project also includes placeholder implementations for **Pathfinding (A-Star)**, **Localization**, and other advanced control concepts for future extension.
 
 ---
 
@@ -101,11 +101,11 @@ The robot should automatically detect and follow the white object in the simulat
 
 ---
 
-## **Deliverables**
+## **Lampiran**
 
-1. **Simulation Video**:
-   - A video demonstrating the robot following a white object in Gazebo.
-2. **Documentation**:
-   - This README file explaining the system's components and workflow.
+1. **Video Simulasi**:
+   - Video mendemonstrasikan robot pengikut objek putih.
+2. **Dokumentasi**:
+   - Berisi penjelasan dan alur kerja dalam bentuk PDF.
 3. **GitHub Repository**:
-   - Include all source code, launch files, and configurations.
+   - Semua source code, fail launch, dan konfigurasi.
