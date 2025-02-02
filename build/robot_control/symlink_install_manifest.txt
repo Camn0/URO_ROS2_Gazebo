@@ -1,10 +1,4 @@
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/src/movement_control.py
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/src/object_detection.py
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/src/pid_controller.py
-/home/kinarast/robot_ws/install/robot_control/share/robot_control/launch/launch/control.launch.py
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/object_detection.py
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_controller.py
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/movement_control.py
+/home/kinarast/robot_ws/install/robot_control/share/robot_control/launch/control.launch.py
 /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/package_run_dependencies/robot_control
 /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/parent_prefix_path/robot_control
 /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.sh

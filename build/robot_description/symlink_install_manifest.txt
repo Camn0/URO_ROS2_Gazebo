@@ -1,3 +1,4 @@
+/home/kinarast/robot_ws/install/robot_description/share/robot_description/urdf/robot.urdf
 /home/kinarast/robot_ws/install/robot_description/share/robot_description/urdf/robot.urdf.xacro
 /home/kinarast/robot_ws/install/robot_description/share/robot_description/launch/display.launch.py
 /home/kinarast/robot_ws/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description

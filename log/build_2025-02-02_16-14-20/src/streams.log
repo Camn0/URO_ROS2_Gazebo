@@ -1,0 +1,2 @@
+[0.016s] Invoking command in '/home/kinarast/robot_ws/build/src': /usr/bin/cmake --build /home/kinarast/robot_ws/build/src -- -j8 -l8
+[0.056s] Invoked command in '/home/kinarast/robot_ws/build/src' returned '0': /usr/bin/cmake --build /home/kinarast/robot_ws/build/src -- -j8 -l8

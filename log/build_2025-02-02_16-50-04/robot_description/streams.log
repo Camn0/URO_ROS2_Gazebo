@@ -1,0 +1,43 @@
+[0.015s] Invoking command in '/home/kinarast/robot_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake /home/kinarast/robot_ws/src/robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kinarast/robot_ws/install/robot_description
+[0.074s] -- The C compiler identification is GNU 11.4.0
+[0.176s] -- The CXX compiler identification is GNU 11.4.0
+[0.185s] -- Detecting C compiler ABI info
+[0.261s] -- Detecting C compiler ABI info - done
+[0.277s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.277s] -- Detecting C compile features
+[0.278s] -- Detecting C compile features - done
+[0.283s] -- Detecting CXX compiler ABI info
+[0.380s] -- Detecting CXX compiler ABI info - done
+[0.389s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.390s] -- Detecting CXX compile features
+[0.391s] -- Detecting CXX compile features - done
+[0.433s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.712s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.794s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.928s] -- Configuring done
+[0.931s] -- Generating done
+[0.932s] -- Build files have been written to: /home/kinarast/robot_ws/build/robot_description
+[0.938s] Invoked command in '/home/kinarast/robot_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake /home/kinarast/robot_ws/src/robot_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/kinarast/robot_ws/install/robot_description
+[0.941s] Invoking command in '/home/kinarast/robot_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --build /home/kinarast/robot_ws/build/robot_description -- -j8 -l8
+[0.981s] Invoked command in '/home/kinarast/robot_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --build /home/kinarast/robot_ws/build/robot_description -- -j8 -l8
+[0.992s] Invoking command in '/home/kinarast/robot_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --install /home/kinarast/robot_ws/build/robot_description
+[1.000s] -- Install configuration: ""
+[1.001s] -- Execute custom install script
+[1.001s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/urdf/robot.urdf.xacro
+[1.011s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/launch/display.launch.py
+[1.021s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description
+[1.030s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/ament_index/resource_index/parent_prefix_path/robot_description
+[1.040s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.sh
+[1.049s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.dsv
+[1.058s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/environment/path.sh
+[1.067s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/environment/path.dsv
+[1.078s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/local_setup.bash
+[1.087s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/local_setup.sh
+[1.097s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/local_setup.zsh
+[1.106s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/local_setup.dsv
+[1.115s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/package.dsv
+[1.125s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
+[1.134s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig.cmake
+[1.143s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig-version.cmake
+[1.153s] -- Symlinking: /home/kinarast/robot_ws/install/robot_description/share/robot_description/package.xml
+[1.174s] Invoked command in '/home/kinarast/robot_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --install /home/kinarast/robot_ws/build/robot_description

@@ -1,63 +1,213 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="simple_robot">
-  <!-- Base link -->
+<robot name="simple_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Materials -->
+  <material name="chassis_color">
+    <color rgba="0.8 0.2 0.2 1"/> <!-- A lively red -->
+  </material>
+  <material name="wheel_color">
+    <color rgba="0.1 0.1 0.1 1"/> <!-- Dark, like rubber -->
+  </material>
+  <material name="camera_color">
+    <color rgba="0.0 0.0 1.0 1"/> <!-- Blue for the camera -->
+  </material>
+
+  <!-- Chassis / Base Link -->
   <link name="base_link">
     <visual>
+      <origin xyz="0 0 0.3"/>
       <geometry>
-        <box size="0.5 0.3 0.2"/>
+        <box size="0.6 0.5 0.2"/>
       </geometry>
-      <material name="blue"/>
+      <material name="chassis_color"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0.3"/>
+      <geometry>
+        <box size="0.6 0.5 0.2"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0.3"/>
+      <mass value="5.0"/>
+      <inertia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </inertial>
   </link>
+  <gazebo reference="base_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
 
-  <!-- Wheels -->
-  <link name="wheel_left">
+  <!-- Front Left Wheel -->
+  <link name="wheel_front_left">
     <visual>
       <geometry>
-        <cylinder radius="0.05" length="0.02"/>
+        <cylinder radius="0.1" length="0.05"/>
       </geometry>
-      <material name="black"/>
+      <material name="wheel_color"/>
     </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
   </link>
+  <gazebo reference="wheel_front_left">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
-  <link name="wheel_right">
+  <!-- Front Right Wheel -->
+  <link name="wheel_front_right">
     <visual>
       <geometry>
-        <cylinder radius="0.05" length="0.02"/>
+        <cylinder radius="0.1" length="0.05"/>
       </geometry>
-      <material name="black"/>
+      <material name="wheel_color"/>
     </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
   </link>
+  <gazebo reference="wheel_front_right">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
-  <!-- Camera -->
-  <link name="camera">
+  <!-- Rear Left Wheel -->
+  <link name="wheel_rear_left">
     <visual>
       <geometry>
-        <box size="0.1 0.05 0.05"/>
+        <cylinder radius="0.1" length="0.05"/>
       </geometry>
-      <material name="grey"/>
+      <material name="wheel_color"/>
     </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
   </link>
+  <gazebo reference="wheel_rear_left">
+    <material>Gazebo/Black</material>
+  </gazebo>
 
-  <!-- Joints -->
-  <joint name="base_to_left_wheel" type="continuous">
+  <!-- Rear Right Wheel -->
+  <link name="wheel_rear_right">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="wheel_color"/>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+  <gazebo reference="wheel_rear_right">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <!-- Joints for the Four Wheels -->
+  <joint name="joint_wheel_front_left" type="continuous">
+    <origin xyz="0.3 0.25 0.1" rpy="-1.5708 0 0"/>
     <parent link="base_link"/>
-    <child link="wheel_left"/>
-    <origin xyz="-0.2 0 0"/>
+    <child link="wheel_front_left"/>
     <axis xyz="0 1 0"/>
   </joint>
 
-  <joint name="base_to_right_wheel" type="continuous">
+  <joint name="joint_wheel_front_right" type="continuous">
+    <origin xyz="0.3 -0.25 0.1" rpy="-1.5708 0 0"/>
     <parent link="base_link"/>
-    <child link="wheel_right"/>
-    <origin xyz="0.2 0 0"/>
+    <child link="wheel_front_right"/>
     <axis xyz="0 1 0"/>
   </joint>
 
-  <joint name="base_to_camera" type="fixed">
+  <joint name="joint_wheel_rear_left" type="continuous">
+    <origin xyz="-0.3 0.25 0.1" rpy="-1.5708 0 0"/>
     <parent link="base_link"/>
-    <child link="camera"/>
-    <origin xyz="0 0 0.15"/>
+    <child link="wheel_rear_left"/>
+    <axis xyz="0 1 0"/>
   </joint>
+
+  <joint name="joint_wheel_rear_right" type="continuous">
+    <origin xyz="-0.3 -0.25 0.1" rpy="-1.5708 0 0"/>
+    <parent link="base_link"/>
+    <child link="wheel_rear_right"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- Camera Link & Sensor Plugin -->
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="camera_color"/>
+    </visual>
+  </link>
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <always_on>true</always_on>
+      <update_rate>30</update_rate>
+      <camera>
+        <horizontal_fov>1.047</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.1</near>
+          <far>100</far>
+        </clip>
+      </camera>
+      <plugin name="gazebo_ros_camera" filename="libgazebo_ros_camera.so">
+        <cameraName>camera</cameraName>
+        <frameName>camera_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Updated Camera Joint: Now the camera is mounted forward without an unnecessary rotation -->
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.2 0 0.5" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <!-- Diff Drive Plugin Configuration -->
+  <gazebo reference="base_link">
+    <plugin name="gazebo_ros_diff_drive" filename="libgazebo_ros_diff_drive.so">
+      <ros>
+        <remapping>cmd_vel:=/cmd_vel</remapping>
+      </ros>
+      <left_joint>joint_wheel_front_left</left_joint>
+      <left_joint>joint_wheel_rear_left</left_joint>
+      <right_joint>joint_wheel_front_right</right_joint>
+      <right_joint>joint_wheel_rear_right</right_joint>
+      <wheel_separation>0.5</wheel_separation>
+      <wheel_diameter>0.2</wheel_diameter>
+      <update_rate>50</update_rate>
+      <torque>5.0</torque>
+    </plugin>
+  </gazebo>
 </robot>
-

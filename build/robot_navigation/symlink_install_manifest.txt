@@ -1,5 +1,5 @@
-/home/kinarast/robot_ws/install/robot_navigation/lib/robot_navigation/src/a_star.py
-/home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/launch/launch/navigation.launch.py
+/home/kinarast/robot_ws/install/robot_navigation/lib/robot_navigation/a_star.py
+/home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/launch/navigation.launch.py
 /home/kinarast/robot_ws/install/robot_navigation/share/ament_index/resource_index/package_run_dependencies/robot_navigation
 /home/kinarast/robot_ws/install/robot_navigation/share/ament_index/resource_index/parent_prefix_path/robot_navigation
 /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/environment/ament_prefix_path.sh

@@ -2,18 +2,14 @@
 <package format="3">
   <name>robot_navigation</name>
   <version>0.0.1</version>
-  <description>Navigation package for the robot using A* algorithm</description>
-
-  <maintainer email="kinarast@todo.todo">Your Name</maintainer>
+  <description>Navigation package implementing A* pathfinding algorithm</description>
+  <maintainer email="kinarast@todo.todo">kinarast</maintainer>
   <license>Apache-2.0</license>
-
+  
   <buildtool_depend>ament_cmake</buildtool_depend>
-
   <depend>rclpy</depend>
-  <depend>nav_msgs</depend>
-
+  
   <export>
     <build_type>ament_cmake</build_type>
   </export>
 </package>
-

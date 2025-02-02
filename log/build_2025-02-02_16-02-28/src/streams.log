@@ -1,0 +1,32 @@
+[0.074s] Invoking command in '/home/kinarast/robot_ws/build/src': /usr/bin/cmake /home/kinarast/robot_ws/src -DCMAKE_INSTALL_PREFIX=/home/kinarast/robot_ws/install/src
+[0.709s] [33mCMake Warning (dev) in CMakeLists.txt:
+[0.709s]   No project() command is present.  The top-level CMakeLists.txt file must
+[0.709s]   contain a literal, direct call to the project() command.  Add a line of
+[0.709s]   code such as
+[0.710s] 
+[0.710s]     project(ProjectName)
+[0.710s] 
+[0.710s]   near the top of the file, but after cmake_minimum_required().
+[0.710s] 
+[0.710s]   CMake is pretending there is a "project(Project)" command on the first
+[0.710s]   line.
+[0.710s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.710s] [0m
+[2.713s] -- The C compiler identification is GNU 11.4.0
+[3.940s] -- The CXX compiler identification is GNU 11.4.0
+[4.098s] -- Detecting C compiler ABI info
+[4.648s] -- Detecting C compiler ABI info - done
+[4.660s] -- Check for working C compiler: /usr/bin/cc - skipped
+[4.661s] -- Detecting C compile features
+[4.702s] -- Detecting C compile features - done
+[4.709s] -- Detecting CXX compiler ABI info
+[4.855s] -- Detecting CXX compiler ABI info - done
+[4.883s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[4.884s] -- Detecting CXX compile features
+[4.885s] -- Detecting CXX compile features - done
+[4.887s] -- Configuring done
+[4.889s] -- Generating done
+[4.890s] -- Build files have been written to: /home/kinarast/robot_ws/build/src
+[4.896s] Invoked command in '/home/kinarast/robot_ws/build/src' returned '0': /usr/bin/cmake /home/kinarast/robot_ws/src -DCMAKE_INSTALL_PREFIX=/home/kinarast/robot_ws/install/src
+[4.898s] Invoking command in '/home/kinarast/robot_ws/build/src': /usr/bin/cmake --build /home/kinarast/robot_ws/build/src -- -j8 -l8
+[4.939s] Invoked command in '/home/kinarast/robot_ws/build/src' returned '0': /usr/bin/cmake --build /home/kinarast/robot_ws/build/src -- -j8 -l8

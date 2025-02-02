@@ -310,11 +310,11 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "src" "DESTINATION" "lib/robot_navigation")
-ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_navigation" DIRECTORY "src" "DESTINATION" "lib/robot_navigation")
+# install(DIRECTORY "src/" "DESTINATION" "lib/robot_navigation")
+ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_navigation" DIRECTORY "src/" "DESTINATION" "lib/robot_navigation")
 
-# install(DIRECTORY "launch" "DESTINATION" "share/robot_navigation/launch")
-ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_navigation" DIRECTORY "launch" "DESTINATION" "share/robot_navigation/launch")
+# install(DIRECTORY "launch/" "DESTINATION" "share/robot_navigation/launch")
+ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_navigation" DIRECTORY "launch/" "DESTINATION" "share/robot_navigation/launch")
 
 # install(FILES "/home/kinarast/robot_ws/build/robot_navigation/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_navigation" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/kinarast/robot_ws/src/robot_navigation" FILES "/home/kinarast/robot_ws/build/robot_navigation/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_navigation" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

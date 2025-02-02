@@ -310,14 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "src" "DESTINATION" "lib/robot_control")
-ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_control" DIRECTORY "src" "DESTINATION" "lib/robot_control")
-
-# install(DIRECTORY "launch" "DESTINATION" "share/robot_control/launch")
-ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_control" DIRECTORY "launch" "DESTINATION" "share/robot_control/launch")
-
-# install(PROGRAMS "src/object_detection.py" "src/pid_controller.py" "src/movement_control.py" "DESTINATION" "lib/robot_control")
-ament_cmake_symlink_install_programs("/home/kinarast/robot_ws/src/robot_control" PROGRAMS "src/object_detection.py" "src/pid_controller.py" "src/movement_control.py" "DESTINATION" "lib/robot_control")
+# install(DIRECTORY "launch/" "DESTINATION" "share/robot_control/launch")
+ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_control" DIRECTORY "launch/" "DESTINATION" "share/robot_control/launch")
 
 # install(FILES "/home/kinarast/robot_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/kinarast/robot_ws/src/robot_control" FILES "/home/kinarast/robot_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

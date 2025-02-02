@@ -295,9 +295,6 @@ robot_description_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 robot_description_SOURCE_DIR:STATIC=/home/kinarast/robot_ws/src/robot_description
 
-//The directory containing a CMake configuration file for xacro.
-xacro_DIR:PATH=/opt/ros/humble/share/xacro/cmake
-
 
 ########################
 # INTERNAL cache entries

@@ -1,0 +1,4 @@
+Invoking command in '/home/kinarast/robot_ws/build/src': /usr/bin/cmake /home/kinarast/robot_ws/src -DCMAKE_INSTALL_PREFIX=/home/kinarast/robot_ws/install/src
+Invoked command in '/home/kinarast/robot_ws/build/src' returned '0': /usr/bin/cmake /home/kinarast/robot_ws/src -DCMAKE_INSTALL_PREFIX=/home/kinarast/robot_ws/install/src
+Invoking command in '/home/kinarast/robot_ws/build/src': /usr/bin/cmake --build /home/kinarast/robot_ws/build/src -- -j8 -l8
+Invoked command in '/home/kinarast/robot_ws/build/src' returned '0': /usr/bin/cmake --build /home/kinarast/robot_ws/build/src -- -j8 -l8
