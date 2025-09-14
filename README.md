@@ -1,78 +1,68 @@
-# Proyek Robot Visual Servoing dengan ROS2 & Gazebo
+# Proyek Robot Visual Servoing dengan ROS2 dan Gazebo
 
 ![ROS Humble](https://img.shields.io/badge/ROS-Humble-blue?style=for-the-badge&logo=ros)
-![Gazebo Classic](https://img.shields.io/badge/Gazebo-Classic-orange?style=for-the-badge)
+![Gazebo](https://img.shields.io/badge/Gazebo-Simulator-orange?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)
-![OpenCV](https://img.shields.io/badge/OpenCV-4.5-blue?style=for-the-badge&logo=opencv)
 
-Repositori ini berisi implementasi lengkap dari robot mobile otonom yang melakukan tugas *visual servoing*—menggunakan input visual dari kamera untuk mengontrol gerakannya. Robot disimulasikan di Gazebo Classic dan dioperasikan menggunakan ROS 2 Humble.
-
-Tujuan utama robot adalah untuk secara otomatis mendeteksi objek berwarna hijau, mendekatinya, dan berhenti pada jarak yang telah ditentukan.
+Ini adalah proyek tugas besar yang mengimplementasikan robot mobile sederhana di dalam simulator Gazebo. Robot ini menggunakan kamera dan logika kontrol PID ganda untuk secara otonom mendeteksi, mendekati, dan berhenti di depan objek berwarna hijau.
 
 ## Demo Visual
-[Screencast from 09-15-2025 12:00:37 AM.webm](https://github.com/user-attachments/assets/3e796a59-1cac-4682-87be-47df6a4c538a)
-## Konsep Inti & Filosofi Desain
-
-### Visual Servoing
-Visual Servoing adalah kelas teknik kontrol robot yang menggunakan umpan balik (feedback) dari sensor visual (seperti kamera) untuk mengontrol gerakan robot. Alih-alih mengandalkan sensor odometri atau GPS yang bisa tidak akurat, sistem ini secara dinamis menghitung "error" antara posisi target saat ini di dalam gambar dan posisi yang diinginkan, lalu menggunakan error tersebut untuk menggerakkan robot.
-
-### Kontrol PID Ganda (Decoupled Control)
-Sistem kontrol inti dari proyek ini menggunakan **dua kontroler PD (Proportional-Derivative) independen**. Pendekatan ini memecah masalah kompleks "mengemudi ke suatu titik" menjadi dua masalah yang lebih sederhana:
-1.  **Kontrol Linear (`pid_y`):** Kontroler ini hanya bertanggung jawab atas kecepatan **maju/mundur**. Inputnya adalah "error jarak", yang dalam proyek ini diwakili oleh *ukuran area* objek yang terlihat. Semakin kecil areanya, semakin jauh targetnya, dan semakin besar perintah maju yang diberikan.
-2.  **Kontrol Angular (`pid_x`):** Kontroler ini hanya bertanggung jawab atas **kemudi (belok kiri/kanan)**. Inputnya adalah "error posisi horizontal", yaitu selisih piksel antara pusat gambar dan pusat objek.
-
-Dengan memisahkan kedua tugas ini, proses *tuning* menjadi lebih intuitif dan sistem lebih stabil.
-
-### Logika Perilaku (Behavioral Logic)
-Robot ini beroperasi dalam dua status utama:
--   **Pelacakan (Tracking):** Saat objek terlihat, kedua kontroler PID aktif, dan robot secara dinamis menyesuaikan kecepatan dan kemudi untuk mendekati target.
--   **Pencarian (Searching):** Jika objek hilang dari pandangan (misalnya, karena terhalang atau robot overshoot), sistem akan masuk ke mode *failsafe*. Robot akan berhenti maju dan berputar di tempat dengan kecepatan yang ditentukan untuk memindai lingkungan sampai objek ditemukan kembali.
-
-## Arsitektur Sistem & Aliran Data
-
-Proyek ini mengikuti arsitektur berbasis node standar ROS 2. Aliran data utama dari sensor ke aktuator adalah sebagai berikut:
 
 
 
-| Publisher | Topic | Tipe Pesan | Subscriber | Keterangan |
-| :--- | :--- | :--- | :--- | :--- |
-| **Gazebo (Kamera)** | `/camera_sensor/image_raw`| `sensor_msgs/Image` | `object_detection` | Feed video mentah dari robot. |
-| `object_detection` | `/object_error_x` | `std_msgs/Float64` | `pid_x` | Error posisi horizontal (dalam piksel). |
-| `object_detection`| `/object_error_y` | `std_msgs/Float64` | `pid_y` | Error jarak (berdasarkan area kontur). |
-| `pid_x` | `/angular_correction` | `std_msgs/Float64` | `movement_control` | Perintah koreksi kemudi (rad/s). |
-| `pid_y` | `/linear_correction` | `std_msgs/Float64` | `movement_control` | Perintah koreksi kecepatan (m/s). |
-| `movement_control` | `/cmd_vel` | `geometry_msgs/Twist`| **Gazebo (Diff Drive)** | Perintah kecepatan akhir untuk roda. |
+*[Screencast from 09-15-2025 12:00:37 AM.webm](https://github.com/user-attachments/assets/3e796a59-1cac-4682-87be-47df6a4c538a)*
 
-## Struktur Workspace
+## Fitur Utama
 
-Workspace ini diorganisir menjadi tiga paket ROS 2 yang berbeda untuk modularitas:
+- **Simulasi di Gazebo:** Lingkungan simulasi lengkap dengan model robot (URDF/XACRO) yang dilengkapi sensor seperti Kamera, Lidar 2D, dan IMU.
+- **Deteksi Objek (OpenCV):** Sebuah node Python yang berlangganan ke feed kamera, mengisolasi objek berwarna hijau menggunakan thresholding HSV, dan menghitung error posisinya.
+- **Kontrol PID Ganda:** Dua kontroler PID terpisah menangani:
+    1.  **Gerakan Linear (Maju/Mundur):** Mengontrol kecepatan robot berdasarkan ukuran objek yang terlihat (area kontur) untuk berhenti pada jarak yang diinginkan.
+    2.  **Gerakan Angular (Belok Kiri/Kanan):** Mengontrol kemudi robot untuk menjaga objek tetap di tengah bidang pandang kamera.
+- **Logika Perilaku:**
+    - **Pelacakan (Tracking):** Saat objek terlihat, robot akan aktif mendekatinya.
+    - **Pencarian (Searching):** Jika objek hilang dari pandangan, robot akan berhenti maju dan berputar di tempat untuk mencarinya kembali.
+- **Arsitektur Modular ROS2:** Proyek diorganisir menjadi tiga paket ROS2 yang berbeda untuk deskripsi, kontrol, dan navigasi.
 
-robot_ws/
-└── src/
-├── robot_description/  # Definisi robot (URDF), model, dan file launch utama.
-├── robot_control/      # Semua logika inti (deteksi, PID, kontrol gerakan).
-└── robot_navigation/   # Placeholder untuk algoritma navigasi masa depan (A*).
+## Arsitektur Sistem
 
+Aliran data di antara node-node ROS2 adalah sebagai berikut:
+
+| Publisher | Topic | Subscriber | Keterangan |
+| :--- | :--- | :--- | :--- |
+| **Gazebo (Plugin Kamera)** | `/camera_sensor/image_raw` | `object_detection` | Feed video mentah dari robot. |
+| **`object_detection`** | `/object_error_x` | `pid_x` | Error posisi horizontal (piksel). |
+| **`object_detection`**| `/object_error_y` | `pid_y` | Error jarak (area kontur piksel). |
+| **`pid_x`** | `/angular_correction` | `movement_control` | Perintah koreksi kemudi (rad/s). |
+| **`pid_y`** | `/linear_correction` | `movement_control` | Perintah koreksi kecepatan (m/s). |
+| **`movement_control`** | `/cmd_vel` | **Gazebo (Plugin Diff Drive)** | Perintah kecepatan akhir untuk roda. |
+
+## Struktur Paket
+
+-   `robot_ws/`
+    -   `src/`
+        -   **`robot_description/`**: Berisi semua file yang mendefinisikan robot (URDF/XACRO), model 3D, dan file launch utama untuk memulai simulasi.
+        -   **`robot_control/`**: Berisi semua logika inti—node deteksi objek, node PID, dan node kontrol gerakan.
+        -   **`robot_navigation/`**: Paket placeholder yang berisi algoritma pathfinding A* (saat ini tidak terintegrasi) untuk pengembangan di masa depan.
 
 ## Penyiapan dan Instalasi
 
 ### Prasyarat
 
--   Ubuntu 22.04 LTS
--   ROS 2 Humble Hawksbill (Instalasi `ros-humble-desktop` direkomendasikan)
--   Gazebo Classic (terinstal bersama `ros-humble-desktop`)
--   `colcon` (alat build standar ROS 2)
+-   Ubuntu 22.04
+-   ROS 2 Humble Hawksbill
+-   Gazebo (biasanya terinstal bersama `ros-humble-desktop`)
+-   Colcon (alat build ROS2)
 
 ### Langkah-langkah
 
-1.  **Clone Repositori ke Folder `src` Workspace Anda**
+1.  **Clone Repositori**
     ```bash
-    mkdir -p ~/robot_ws/src
-    cd ~/robot_ws/src
-    git clone [https://github.com/Camn0/ros2-visual-servoing-pid.git](https://github.com/Camn0/ros2-visual-servoing-pid.git) .
+    cd ~/
+    git clone [https://github.com/NAMA_ANDA/NAMA_REPO_ANDA.git](https://github.com/NAMA_ANDA/NAMA_REPO_ANDA.git) robot_ws/src
     ```
 
-2.  **Instal Dependensi** (Meskipun proyek ini menggunakan paket standar, ini adalah praktik yang baik)
+2.  **Instal Dependensi** (Proyek ini menggunakan dependensi standar ROS, tetapi ini adalah praktik yang baik)
     ```bash
     cd ~/robot_ws
     rosdep install -i --from-path src --rosdistro humble -y
@@ -86,9 +76,9 @@ robot_ws/
 
 ## Cara Menjalankan
 
-Setelah workspace berhasil di-build, Anda dapat meluncurkan seluruh simulasi dan tumpukan kontrol dengan satu perintah.
+Setelah workspace berhasil di-build, jalankan simulasi lengkap dengan satu perintah launch:
 
-1.  **Buka Terminal Baru dan Sumber (Source) Workspace Anda:**
+1.  **Sumber (Source) Workspace Anda:**
     ```bash
     source ~/robot_ws/install/setup.bash
     ```
@@ -96,63 +86,32 @@ Setelah workspace berhasil di-build, Anda dapat meluncurkan seluruh simulasi dan
     ```bash
     ros2 launch robot_description display.launch.py
     ```
-    Perintah ini akan:
-    -   Membuka jendela simulator Gazebo.
-    -   Memunculkan (spawn) robot di titik (0,0).
-    -   Memunculkan plat target berwarna hijau di depannya.
-    -   Memulai semua node Python yang diperlukan untuk deteksi dan kontrol.
+    Ini akan membuka jendela Gazebo, memunculkan robot dan plat hijau, dan memulai semua node kontrol secara otomatis.
 
-## Panduan Konfigurasi & Tuning Perilaku
+## Konfigurasi & Tuning
 
-Perilaku robot sangat sensitif terhadap beberapa parameter kunci. Menyesuaikannya adalah bagian penting dari proses. **Selalu jalankan `colcon build` setelah mengubah file Python.**
+Perilaku robot dapat disesuaikan dengan mengubah beberapa parameter kunci dalam kode. Setelah mengubah parameter apa pun, jangan lupa untuk membangun ulang workspace dengan `colcon build`.
 
-### 1. Jarak Berhenti (Parameter Paling Kritis)
+### 1. Menyesuaikan Jarak Berhenti (Perbaikan Paling Penting)
 
-Ini adalah perbaikan paling penting yang ditemukan selama pengembangan. Jika robot berperilaku tidak menentu saat sangat dekat dengan target, masalahnya ada di sini.
+Ini adalah parameter yang paling krusial untuk stabilitas. Jika robot melaju kencang saat mendekat, itu karena setpoint ini tidak dapat dicapai.
 
 -   **File:** `src/robot_control/src/object_detection.py`
 -   **Parameter:** `target_area_setpoint`
--   **Penjelasan:** Parameter ini adalah "tujuan" dari kontroler kecepatan (`pid_y`). Ini adalah ukuran (dalam piksel persegi) dari kontur hijau yang Anda inginkan saat robot berhenti. Masalah muncul ketika nilai ini secara fisik tidak dapat dicapai—yaitu, ketika plat hijau mulai terpotong oleh tepi kamera sebelum areanya bisa mencapai setpoint. Ketika ini terjadi, area yang terdeteksi tiba-tiba menyusut, menyebabkan PID berpikir target menjauh dan memerintahkan **akselerasi**, yang menyebabkan *overshoot*.
-    -   **Jika robot melaju kencang/overshoot saat mendekat:** Nilai ini **terlalu besar**. **Turunkan nilainya** (misalnya dari `50000.0` ke `35000.0` atau `10000.0`).
-    -   **Jika robot berhenti terlalu jauh:** Anda bisa sedikit **menaikkan nilainya**.
+-   **Penjelasan:** Nilai ini adalah "tujuan" dari kontroler PID kecepatan. Ini adalah ukuran (dalam piksel persegi) dari kontur hijau yang Anda inginkan saat robot berhenti.
+    -   **Jika robot overshoot atau melaju kencang saat mendekat:** Nilai ini **terlalu besar**. Plat hijau sudah terpotong oleh tepi kamera sebelum areanya bisa mencapai setpoint ini. **Turunkan nilainya** (misalnya dari `50000.0` ke `35000.0` atau `10000.0`).
+    -   **Jika robot berhenti terlalu jauh:** **Naikkan nilainya** sedikit.
 
-### 2. Kecepatan & Stabilitas (Tuning PID)
+### 2. Menyesuaikan Kecepatan & Stabilitas (File PID)
 
 -   **File:** `src/robot_control/src/pid_x.py` (Kemudi) & `pid_y.py` (Kecepatan Maju)
 -   **Parameter:** `self.kp`, `self.kd`
 
-| Parameter | Efek | Cara Tuning |
-| :--- | :--- | :--- |
-| **`pid_y.py` -> `kp`** | **"Gas" Utama:** Mengontrol kecepatan maju maksimum. | Naikkan untuk membuat robot lebih cepat. Turunkan jika menjadi tidak stabil atau overshoot. |
-| **`pid_y.py` -> `kd`** | **"Rem" Utama:** Meredam osilasi maju-mundur dan mencegah overshoot jarak. | Naikkan secara signifikan jika robot overshoot. Turunkan jika robot terasa terlalu "berat" atau lambat untuk mulai bergerak. |
-| **`pid_x.py` -> `kp`** | **"Agresivitas Kemudi":** Mengontrol seberapa cepat robot berbelok untuk menghadap target. | Naikkan untuk belokan yang lebih "snappy" dan responsif. |
-| **`pid_x.py` -> `kd`** | **"Peredam Kemudi":** Mencegah getaran (wobble) dari sisi ke sisi saat robot mencoba mengunci target. | Naikkan jika robot bergetar saat menghadap lurus ke target. |
+    -   **`kp` (Proportional Gain):** Anggap ini sebagai "pedal gas". Nilai yang lebih tinggi membuat robot merespons lebih cepat dan lebih agresif. Jika terlalu tinggi, robot akan menjadi tidak stabil dan berosilasi (gemetar atau maju-mundur).
+    -   **`kd` (Derivative Gain):** Anggap ini sebagai "rem" atau "peredam kejut". Nilai yang lebih tinggi akan meredam osilasi dan mencegah robot *overshoot* (kebablasan). Jika terlalu tinggi, respons robot akan terasa lambat atau "berat".
 
+### 3. Menyesuaikan Kecepatan Pencarian
 
-### 3. Kecepatan Pencarian
-
--   **File:** `src/robot_control/src/movement_control.py` atau `src/robot_control/launch/control.launch.py`
+-   **File:** `src/robot_control/src/movement_control.py`
 -   **Parameter:** `search_angular_velocity`
--   **Penjelasan:** Mengontrol seberapa cepat robot berputar di tempat (dalam rad/s) saat mencari plat hijau yang hilang. Nilai ini dapat diubah langsung di file `movement_control.py` atau diganti (override) di file `control.launch.py` untuk penyesuaian yang lebih mudah.
-
-## Troubleshooting Umum
-
--   **Gazebo Gagal Memulai (`Address already in use`):** Ini berarti ada proses Gazebo "zombie" yang berjalan di latar belakang. Matikan paksa semua proses:
-    ```bash
-    killall -9 gzserver && killall -9 gzclient
-    ```
--   **`rqt_image_view: command not found`:** Alat visualisasi kamera tidak terinstal. Instal dengan:
-    ```bash
-    sudo apt update
-    sudo apt install ros-humble-rqt-image-view
-    ```
-
-## Rencana Pengembangan di Masa Depan
-
--   **Integrasi Navigasi:** Mengintegrasikan paket `robot_navigation` dengan data dari Lidar 2D untuk melakukan pathfinding A* atau SLAM di sekitar rintangan.
--   **Penghindaran Rintangan (Obstacle Avoidance):** Menggunakan data Lidar untuk secara aktif menghindari rintangan saat mendekati target, bahkan tanpa peta.
--   **Tuning PID Dinamis:** Mengimplementasikan node yang memungkinkan gain PID diubah secara real-time menggunakan parameter ROS2 untuk tuning yang lebih cepat dan interaktif.
-
-## Lisensi
-
-Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file `LICENSE` untuk detailnya.
+-   **Penjelasan:** Mengontrol seberapa cepat robot berputar di tempat saat mencari plat hijau yang hilang. Naikkan nilainya untuk pencarian yang lebih cepat.
