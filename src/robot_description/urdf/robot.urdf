@@ -130,25 +130,29 @@
     <origin rpy="-1.5708 0 0" xyz="0.3 0.25 0.1"/>
     <parent link="base_link"/>
     <child link="wheel_front_left"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 0 1"/>
+    <!-- Changed to Z-axis -->
   </joint>
   <joint name="joint_wheel_front_right" type="continuous">
     <origin rpy="-1.5708 0 0" xyz="0.3 -0.25 0.1"/>
     <parent link="base_link"/>
     <child link="wheel_front_right"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 0 1"/>
+    <!-- Changed to Z-axis -->
   </joint>
   <joint name="joint_wheel_rear_left" type="continuous">
     <origin rpy="-1.5708 0 0" xyz="-0.3 0.25 0.1"/>
     <parent link="base_link"/>
     <child link="wheel_rear_left"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 0 1"/>
+    <!-- Changed to Z-axis -->
   </joint>
   <joint name="joint_wheel_rear_right" type="continuous">
     <origin rpy="-1.5708 0 0" xyz="-0.3 -0.25 0.1"/>
     <parent link="base_link"/>
     <child link="wheel_rear_right"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 0 1"/>
+    <!-- Changed to Z-axis -->
   </joint>
   <!-- Camera Link & Sensor Plugin -->
   <link name="camera_link">
@@ -190,19 +194,20 @@
     <child link="camera_link"/>
   </joint>
   <!-- Diff Drive Plugin Configuration -->
-  <gazebo reference="base_link">
+  <gazebo>
     <plugin filename="libgazebo_ros_diff_drive.so" name="gazebo_ros_diff_drive">
       <ros>
+        <namespace>/</namespace>
         <remapping>cmd_vel:=/cmd_vel</remapping>
       </ros>
+      <!-- Use the tags expected by your plugin version -->
       <left_joint>joint_wheel_front_left</left_joint>
-      <left_joint>joint_wheel_rear_left</left_joint>
       <right_joint>joint_wheel_front_right</right_joint>
-      <right_joint>joint_wheel_rear_right</right_joint>
       <wheel_separation>0.5</wheel_separation>
       <wheel_diameter>0.2</wheel_diameter>
       <update_rate>50</update_rate>
-      <torque>5.0</torque>
+      <max_wheel_torque>10</max_wheel_torque>
+      <command_topic>cmd_vel</command_topic>
     </plugin>
   </gazebo>
 </robot>

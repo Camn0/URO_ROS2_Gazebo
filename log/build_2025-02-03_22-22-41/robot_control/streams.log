@@ -1,0 +1,25 @@
+[0.182s] Invoking command in '/home/kinarast/robot_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --build /home/kinarast/robot_ws/build/robot_control -- -j8 -l8
+[1.926s] Invoked command in '/home/kinarast/robot_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --build /home/kinarast/robot_ws/build/robot_control -- -j8 -l8
+[2.019s] Invoking command in '/home/kinarast/robot_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --install /home/kinarast/robot_ws/build/robot_control
+[2.047s] -- Install configuration: ""
+[2.049s] -- Execute custom install script
+[2.237s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/launch/control.launch.py
+[2.248s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/package_run_dependencies/robot_control
+[2.248s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/parent_prefix_path/robot_control
+[2.249s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.sh
+[2.249s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.dsv
+[2.250s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/path.sh
+[2.260s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/path.dsv
+[2.260s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.bash
+[2.260s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.sh
+[2.260s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.zsh
+[2.271s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.dsv
+[2.271s] -- Symlinking: /home/kinarast/robot_ws/install/robot_control/share/robot_control/package.dsv
+[2.304s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/packages/robot_control
+[2.316s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig.cmake
+[2.316s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig-version.cmake
+[2.316s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/package.xml
+[2.366s] -- Up-to-date: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/object_detection
+[2.367s] -- Up-to-date: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_controller
+[2.367s] -- Up-to-date: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/movement_control
+[2.417s] Invoked command in '/home/kinarast/robot_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble /usr/bin/cmake --install /home/kinarast/robot_ws/build/robot_control

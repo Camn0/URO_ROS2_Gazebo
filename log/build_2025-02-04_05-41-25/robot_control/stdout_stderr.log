@@ -1,0 +1,22 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/launch/control.launch.py
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/package_run_dependencies/robot_control
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/parent_prefix_path/robot_control
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/path.sh
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/environment/path.dsv
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.bash
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.sh
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.zsh
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/local_setup.dsv
+-- Symlinking: /home/kinarast/robot_ws/install/robot_control/share/robot_control/package.dsv
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/ament_index/resource_index/packages/robot_control
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig.cmake
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig-version.cmake
+-- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_control/share/robot_control/package.xml
+-- Installing: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/object_detection
+-- Up-to-date: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_x
+-- Up-to-date: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_y
+-- Up-to-date: /home/kinarast/robot_ws/install/robot_control/lib/robot_control/movement_control

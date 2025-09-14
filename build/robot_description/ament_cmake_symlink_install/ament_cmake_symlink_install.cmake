@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "urdf" "launch" "DESTINATION" "share/robot_description")
-ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_description" DIRECTORY "urdf" "launch" "DESTINATION" "share/robot_description")
+# install(DIRECTORY "urdf" "launch" "models" "DESTINATION" "share/robot_description")
+ament_cmake_symlink_install_directory("/home/kinarast/robot_ws/src/robot_description" DIRECTORY "urdf" "launch" "models" "DESTINATION" "share/robot_description")
 
 # install(FILES "/home/kinarast/robot_ws/build/robot_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/kinarast/robot_ws/src/robot_description" FILES "/home/kinarast/robot_ws/build/robot_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

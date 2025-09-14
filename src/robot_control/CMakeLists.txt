@@ -9,6 +9,8 @@ find_package(std_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
 
+# Kita install setiap script satu per satu agar sintaksnya pasti benar
+
 install(PROGRAMS
   src/object_detection.py
   DESTINATION lib/${PROJECT_NAME}
@@ -16,15 +18,21 @@ install(PROGRAMS
 )
 
 install(PROGRAMS
-  src/pid_controller.py
-  DESTINATION lib/${PROJECT_NAME}
-  RENAME pid_controller
-)
-
-install(PROGRAMS
   src/movement_control.py
   DESTINATION lib/${PROJECT_NAME}
   RENAME movement_control
+)
+
+install(PROGRAMS
+  src/pid_x.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME pid_x
+)
+
+install(PROGRAMS
+  src/pid_y.py
+  DESTINATION lib/${PROJECT_NAME}
+  RENAME pid_y
 )
 
 install(

@@ -22,11 +22,11 @@ class PIDControllerNode(Node):
     def __init__(self):
         super().__init__('pid_controller')
         self.subscription = self.create_subscription(
-            Float64,
-            '/object_error',
-            self.error_callback,
-            10
-        )
+   		 Float64,
+   		 '/object_error',  # <-- SESUAIKAN DENGAN PUBLISHER 
+   		 self.error_callback,
+    		10
+	)
         self.publisher_ = self.create_publisher(Float64, '/angular_correction', 10)
         
         # Declare PID parameters so they can be tuned via ROS parameters

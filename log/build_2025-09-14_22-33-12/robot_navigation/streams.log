@@ -1,0 +1,23 @@
+[0.026s] Invoking command in '/home/kinarast/robot_ws/build/robot_navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kinarast/robot_ws/build/robot_navigation -- -j8 -l8
+[0.099s] Invoked command in '/home/kinarast/robot_ws/build/robot_navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/kinarast/robot_ws/build/robot_navigation -- -j8 -l8
+[0.102s] Invoking command in '/home/kinarast/robot_ws/build/robot_navigation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kinarast/robot_ws/build/robot_navigation
+[0.113s] -- Install configuration: ""
+[0.114s] -- Execute custom install script
+[0.115s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/lib/robot_navigation/a_star.py
+[0.116s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/launch/navigation.launch.py
+[0.116s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/ament_index/resource_index/package_run_dependencies/robot_navigation
+[0.118s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/ament_index/resource_index/parent_prefix_path/robot_navigation
+[0.118s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/environment/ament_prefix_path.sh
+[0.118s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/environment/ament_prefix_path.dsv
+[0.119s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/environment/path.sh
+[0.119s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/environment/path.dsv
+[0.120s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/local_setup.bash
+[0.120s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/local_setup.sh
+[0.121s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/local_setup.zsh
+[0.121s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/local_setup.dsv
+[0.121s] -- Symlinking: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/package.dsv
+[0.137s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/ament_index/resource_index/packages/robot_navigation
+[0.137s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/cmake/robot_navigationConfig.cmake
+[0.138s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/cmake/robot_navigationConfig-version.cmake
+[0.138s] -- Up-to-date symlink: /home/kinarast/robot_ws/install/robot_navigation/share/robot_navigation/package.xml
+[0.174s] Invoked command in '/home/kinarast/robot_ws/build/robot_navigation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/kinarast/test1_ws/install/my_robot_vision:/home/kinarast/ros2_ws/install/my_robot_vision:/opt/ros/humble DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/kinarast/robot_ws/build/robot_navigation

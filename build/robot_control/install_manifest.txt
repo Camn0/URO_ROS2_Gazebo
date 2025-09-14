@@ -1,3 +1,4 @@
 /home/kinarast/robot_ws/install/robot_control/lib/robot_control/object_detection
-/home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_controller
 /home/kinarast/robot_ws/install/robot_control/lib/robot_control/movement_control
+/home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_x
+/home/kinarast/robot_ws/install/robot_control/lib/robot_control/pid_y

@@ -12,15 +12,25 @@ def generate_launch_description():
         ),
         Node(
             package='robot_control',
-            executable='pid_controller',
-            name='pid_controller',
+            executable='pid_x',
+            name='pid_x',
             output='screen'
         ),
         Node(
             package='robot_control',
+            executable='pid_y',
+            name='pid_y',
+            output='screen'
+        ),
+         Node(
+            package='robot_control',
             executable='movement_control',
             name='movement_control',
-            output='screen'
+            output='screen',
+            # BLOK BARU INI MENINGKATKAN KECEPATAN PENCARIAN/PEMINDAIAN:
+            parameters=[
+                {"search_angular_velocity": 0.8} # Defaultnya 0.3, kita ubah jadi 0.8
+            ]
         ),
     ])
 

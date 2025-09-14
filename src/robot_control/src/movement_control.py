@@ -8,43 +8,64 @@ class MovementControlNode(Node):
     def __init__(self):
         super().__init__('movement_control')
         self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
-        self.subscription = self.create_subscription(
+        
+        # Dua subscriber, satu untuk linear (dari pid_y) dan satu untuk angular (dari pid_x)
+        self.linear_sub = self.create_subscription(
             Float64,
-            '/angular_correction',
-            self.correction_callback,
+            '/linear_correction',
+            self.linear_callback,
             10
         )
-        # Declare parameters for linear velocity and angular scaling
-        self.declare_parameter("linear_velocity", 0.2)
-        self.declare_parameter("angular_scale", 1.0)
-        self.linear_velocity = self.get_parameter("linear_velocity").value
-        self.angular_scale = self.get_parameter("angular_scale").value
+        self.angular_sub = self.create_subscription(
+            Float64,
+            '/angular_correction',
+            self.angular_callback,
+            10
+        )
 
+        # Variabel untuk menyimpan nilai koreksi terbaru
+        self.latest_linear_x = 0.0
+        self.latest_angular_z = 0.0
         self.last_correction_time = self.get_clock().now()
-        # Create a timer to check if correction messages have stopped (to perform a search maneuver)
-        self.create_timer(0.5, self.timer_callback)
 
-    def correction_callback(self, msg):
-        # Update the last received time for corrections
+        # Parameter kecepatan pencarian (saat objek hilang)
+        self.declare_parameter("search_angular_velocity", 0.8) # Menggunakan 0.8 yang lebih cepat
+        self.search_speed = self.get_parameter("search_angular_velocity").value
+
+        # Timer ini adalah loop kontrol utama. Ia berjalan 20x per detik (50ms)
+        self.create_timer(0.05, self.control_loop)
+
+    def linear_callback(self, msg):
+        # Simpan koreksi linear dan perbarui timestamp
+        self.latest_linear_x = msg.data
         self.last_correction_time = self.get_clock().now()
-        # Scale the angular correction if needed
-        angular_correction = msg.data * self.angular_scale
-        twist = Twist()
-        twist.linear.x = self.linear_velocity
-        twist.angular.z = angular_correction
-        self.publisher_.publish(twist)
-        self.get_logger().info(f'Twist: linear.x={twist.linear.x:.2f}, angular.z={twist.angular.z:.2f}')
 
-    def timer_callback(self):
+    def angular_callback(self, msg):
+        # Simpan koreksi angular dan perbarui timestamp
+        self.latest_angular_z = msg.data
+        self.last_correction_time = self.get_clock().now()
+
+    def control_loop(self):
         current_time = self.get_clock().now()
-        time_diff = (current_time - self.last_correction_time).nanoseconds / 1e9
-        # If no corrections are received for over one second, rotate to search for the object
-        if time_diff > 1.0:
-            twist = Twist()
-            twist.linear.x = 0.0  # Stop forward motion
-            twist.angular.z = 0.2 # Rotate slowly
-            self.publisher_.publish(twist)
-            self.get_logger().info('No recent correction. Rotating to search for the object...')
+        time_diff_sec = (current_time - self.last_correction_time).nanoseconds / 1e9
+        
+        twist = Twist()
+
+        if time_diff_sec > 1.0:
+            # Failsafe: Jika tidak ada pesan koreksi (deteksi) selama > 1 detik,
+            # berarti objek hilang. Berhenti maju dan berputar untuk mencari.
+            twist.linear.x = 0.0
+            twist.angular.z = self.search_speed
+            self.get_logger().info('No detection. Searching...')
+        else:
+            # Objek terdeteksi: Terapkan koreksi PID yang diterima secara LANGSUNG.
+            twist.linear.x = self.latest_linear_x
+            twist.angular.z = self.latest_angular_z
+            self.get_logger().info(f'Twist: linear.x={twist.linear.x:.2f}, angular.z={twist.angular.z:.2f}')
+
+        # Publikasikan perintah gerakan
+        self.publisher_.publish(twist)
+
 
 def main(args=None):
     rclpy.init(args=args)
