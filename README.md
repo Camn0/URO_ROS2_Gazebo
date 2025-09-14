@@ -10,7 +10,7 @@ Ini adalah proyek tugas besar yang mengimplementasikan robot mobile sederhana di
 
 
 
-[Screencast from 09-15-2025 12:00:37 AM.webm](https://github.com/user-attachments/assets/3e796a59-1cac-4682-87be-47df6a4c538a)
+[Screencast from 09-15-2025 12:00:37 AM.webm](https://github.com/user-attachments/assets/edfa1aeb-8d3e-4202-8193-9f062d4aefcd)
 
 ## Fitur Utama
 
