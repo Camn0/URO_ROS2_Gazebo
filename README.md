@@ -7,10 +7,9 @@
 Ini adalah proyek tugas besar yang mengimplementasikan robot mobile sederhana di dalam simulator Gazebo. Robot ini menggunakan kamera dan logika kontrol PID ganda untuk secara otonom mendeteksi, mendekati, dan berhenti di depan objek berwarna hijau.
 
 ## Demo Visual
+[Screencast from 09-15-2025 12:00:37 AM.webm](https://github.com/user-attachments/assets/3e796a59-1cac-4682-87be-47df6a4c538a)
 
 
-
-*(Disarankan untuk menambahkan GIF atau video simulasi Anda yang sedang berjalan di sini)*
 
 ## Fitur Utama
 
@@ -116,7 +115,3 @@ Ini adalah parameter yang paling krusial untuk stabilitas. Jika robot melaju ken
 -   **Parameter:** `search_angular_velocity`
 -   **Penjelasan:** Mengontrol seberapa cepat robot berputar di tempat saat mencari plat hijau yang hilang. Naikkan nilainya untuk pencarian yang lebih cepat.
 
-Lampiran:
-1. Video Simulasi: https://drive.google.com/drive/folders/1HafsxIWreWxEfUF7UJ6uI1xf2absKVZc?usp=sharing
-2. Alur Kerja dan Penjelasan: https://drive.google.com/drive/folders/194OHLaNlf3-DzptS3D1fzv_5t16KUpbB?usp=sharing
-3. Repositori GitHub: https://github.com/Camn0/URO_ROS2_Gazebo/
