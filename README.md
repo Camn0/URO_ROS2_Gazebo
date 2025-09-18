@@ -42,7 +42,7 @@ Aliran data di antara node-node ROS2 adalah sebagai berikut:
 -   `robot_ws/`
     -   `src/`
         -   **`robot_description/`**: Berisi semua file yang mendefinisikan robot (URDF/XACRO), model 3D, dan file launch utama untuk memulai simulasi.
-        -   **`robot_control/`**: Berisi semua logika inti—node deteksi objek, node PID, dan node kontrol gerakan.
+        -   **`robot_control/`**: Berisi semua logika inti, seperti node deteksi objek, node PID, dan node kontrol gerakan.
         -   **`robot_navigation/`**: Paket placeholder yang berisi algoritma pathfinding A* (saat ini tidak terintegrasi) untuk pengembangan di masa depan.
 
 ## Penyiapan dan Instalasi
@@ -59,7 +59,7 @@ Aliran data di antara node-node ROS2 adalah sebagai berikut:
 1.  **Clone Repositori**
     ```bash
     cd ~/
-    git clone [https://github.com/NAMA_ANDA/NAMA_REPO_ANDA.git](https://github.com/NAMA_ANDA/NAMA_REPO_ANDA.git) robot_ws/src
+    git clone [https://github.com/Camn0/ros2-visual-servoing-pid.git](https://github.com/Camn0/ros2-visual-servoing-pid.git) robot_ws/src
     ```
 
 2.  **Instal Dependensi** (Proyek ini menggunakan dependensi standar ROS, tetapi ini adalah praktik yang baik)
